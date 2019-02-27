@@ -528,36 +528,36 @@ download_extract_celley_k8s_artifacts $download_path $distribution_url "distribu
 download_extract_celley_k8s_artifacts $download_path $mesh_observability_url "observability_master.zip"
 #download_cellery_artifacts $istio_base_url $download_path "${istio_yaml[@]}"
 
-Install K8s
-if [[ -n ${iaas/[ ]*\n/} ]]; then
-    if [ $iaas == "GCP" ]; then
-        echo "ℹ️ Selected k8s provider: GCP"
-        echo "ℹ️ GCP Project $gcp_project hosted in $gcp_compute_zone"
-        if [ -n $gcp_project ]; then
-            install_k8s_gcp $gcp_project \
-                            $gcp_compute_zone \
-                            $gcp_k8s_cluster_name \
-                            $k8s_version \
-                            $gcp_k8s_cluster_machine_type \
-                            $gcp_cluster_min_nodes \
-                            $gcp_k8s_cluster_max_nodes \
-                            $gcp_k8s_cluster_num_nodes
-        else
-            echo "GCP project name is required"
-            exit 0
-        fi
-    elif [ $iaas == "kubeadm" ]; then
-        echo "ℹ️ Selected k8s provider: kubeadm"
-        install_k8s_kubeadm $k8s_version
-        #configure k8s master node
-        configure_k8s_kubeadm
-    else
-        echo "Installation script supported k8s providers are GCP and Kubeadm."
-        exit 0
-    fi
-else
-    echo "Installing Cellery into an existing k8s cluster"
-fi
+#Install K8s
+#if [[ -n ${iaas/[ ]*\n/} ]]; then
+#    if [ $iaas == "GCP" ]; then
+#        echo "ℹ️ Selected k8s provider: GCP"
+#        echo "ℹ️ GCP Project $gcp_project hosted in $gcp_compute_zone"
+#        if [ -n $gcp_project ]; then
+#            install_k8s_gcp $gcp_project \
+#                            $gcp_compute_zone \
+#                            $gcp_k8s_cluster_name \
+#                            $k8s_version \
+#                            $gcp_k8s_cluster_machine_type \
+#                            $gcp_cluster_min_nodes \
+#                            $gcp_k8s_cluster_max_nodes \
+#                            $gcp_k8s_cluster_num_nodes
+#        else
+#            echo "GCP project name is required"
+#            exit 0
+#        fi
+#    elif [ $iaas == "kubeadm" ]; then
+#        echo "ℹ️ Selected k8s provider: kubeadm"
+#        install_k8s_kubeadm $k8s_version
+#        #configure k8s master node
+#        configure_k8s_kubeadm
+#    else
+#        echo "Installation script supported k8s providers are GCP and Kubeadm."
+#        exit 0
+#    fi
+#else
+#    echo "Installing Cellery into an existing k8s cluster"
+#fi
 
 #Create cellery-system namespace and the cellery service account
 echo "🔧 Creating cellery-system namespace and the service account"
