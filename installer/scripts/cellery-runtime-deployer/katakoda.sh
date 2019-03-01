@@ -56,6 +56,7 @@ sudo systemctl enable docker.service
 #Update the apt source list
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] http://apt.kubernetes.io/ kubernetes-xenial main"
+sudo apt-get update
 #Install K8s components
 echo "⚙️ Installing kubeadm"
 sudo apt-get install  kubelet=$K8S_VERSION kubeadm=$K8S_VERSION kubectl=$K8S_VERSION
