@@ -325,7 +325,6 @@ elif [ $iaas == "GCP" ]; then
 fi
 
 #Create the gw config maps
-sed -i 's/wso2-apim/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf/carbon.xml;
 kubectl create configmap gw-conf --from-file=${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf -n cellery-system
 kubectl create configmap gw-conf-datasources --from-file=${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf/datasources/ -n cellery-system
 #Create KM config maps
