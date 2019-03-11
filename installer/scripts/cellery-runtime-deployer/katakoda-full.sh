@@ -325,7 +325,7 @@ elif [ $iaas == "GCP" ]; then
 fi
 
 #Create the gw config maps
-kubectl create configmap gw-conf --from-file=${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf -n cellery-system
+kubectl create configmap gw-conf --from-file=~/distribution/installer/k8s-artefacts/global-apim/conf -n cellery-system
 kubectl create configmap gw-conf-datasources --from-file=${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf/datasources/ -n cellery-system
 #Create KM config maps
 kubectl create configmap conf-identity --from-file=${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf/identity -n cellery-system
