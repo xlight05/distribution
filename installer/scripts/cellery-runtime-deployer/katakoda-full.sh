@@ -334,7 +334,7 @@ kubectl create configmap apim-tomcat --from-file=${download_location}/distributi
 kubectl create configmap apim-security --from-file=${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf/security -n cellery-system
 
 #Create gateway deployment and the service
-kubectl apply -f ${download_location}/distribution-master/installer/k8s-artefacts/global-apim/global-apim.yaml -n cellery-system
+kubectl apply -f https://gist.githubusercontent.com/xlight05/2f8cbdc20a5804d922162134b220e81b/raw/251cbb0ec374ad171f61a1b3e44f5c20c3c26553/global-apim.yaml -n cellery-system
 #Wait till the gateway deployment availability
 kubectl wait deployment.apps/gateway --for condition=available --timeout=6000s -n cellery-system
 }
