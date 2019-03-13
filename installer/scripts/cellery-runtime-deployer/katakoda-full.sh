@@ -445,7 +445,7 @@ local download_path=$1
 local distribution_url=$2
 local file_name=$3
 wget ${distribution_url} -O ${download_path}/${file_name} -a cellery-setup.log
-unzip ${download_path}/${file_name} -d ${download_path}
+unzip ${download_path}/${file_name} -d ${download_path} &>/dev/null
 }
 
 
