@@ -597,10 +597,11 @@ deploy_cellery_crds $download_path
                                     $gcp_compute_zone \
                                     $gcp_sql_tire
         elif [ $iaas == "kubeadm" ]; then
-            read_control_plane_datasources_configs
+        echo 'skipped'
+            #read_control_plane_datasources_configs
             #update the sql file
-            update_control_plance_sql $download_path
-            deploy_mysql_server $download_path
+            #update_control_plance_sql $download_path
+            #deploy_mysql_server $download_path
         else
             echo "🔧 Deploy MySQL server into the existing K8s clusters"
             read_control_plane_datasources_configs
