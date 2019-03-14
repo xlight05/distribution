@@ -296,7 +296,7 @@ local download_location=$1
 for param in "${!config_params[@]}"
 do
     #sed -i "s/$param/${config_params[$param]}/g" ${download_location}/apim-configs/pub-store/datasources/master-datasources.xml
-    sed -i "s/$param/${config_params[$param]}/g" ${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf/datasources/master-datasources.xml
+    #sed -i "s/$param/${config_params[$param]}/g" ${download_location}/distribution-master/installer/k8s-artefacts/global-apim/conf/datasources/master-datasources.xml
     sed -i "s/$param/${config_params[$param]}/g" ${download_location}/distribution-master/installer/k8s-artefacts/observability/sp/conf/deployment.yaml
 done
 }
